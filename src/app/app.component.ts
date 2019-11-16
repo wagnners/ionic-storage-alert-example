@@ -20,21 +20,6 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
-    },
-    {
-      title: 'Camêra',
-      url: '/camera',
-      icon: 'camera'
-    },
-    {
-      title: 'Leitor de Text',
-      url: '/leitor-de-texto',
-      icon: 'microphone'
-    },
-    {
-      title: 'Leitor de Código de Barras',
-      url: '/leitor-de-codigo-de-barras',
-      icon: 'barcode'
     }
   ];
 

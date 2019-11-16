@@ -14,10 +14,7 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },
-  { path: 'camera', loadChildren: './camera/camera.module#CameraPageModule' },
-  { path: 'leitor-de-texto', loadChildren: './leitor-de-texto/leitor-de-texto.module#LeitorDeTextoPageModule' },
-  { path: 'leitor-de-codigo-de-barras', loadChildren: './leitor-de-codigo-de-barras/leitor-de-codigo-de-barras.module#LeitorDeCodigoDeBarrasPageModule' }
+  }
 ];
 
 @NgModule({
