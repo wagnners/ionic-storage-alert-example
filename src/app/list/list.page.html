@@ -11,14 +11,19 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+    <ion-item-sliding *ngFor="let cliente of clientes">  
+      <ion-item>
+        {{cliente.nome}}
+      </ion-item>
+  
+      <ion-item-options side="end">        
+        <ion-item-option color="danger" (click)="deleteCliente(cliente.id)">
+            <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
+  
   <!--
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title }}</b>

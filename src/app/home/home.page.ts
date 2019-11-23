@@ -18,7 +18,11 @@ export class HomePage {
     this.storage.get('clientes').then((val) => {
       if(val){
         this.clientes = val;
+        this.cliente.id = this.clientes[this.clientes.length - 1].id + 1;
+      }else{
+        this.cliente.id = 1;
       }
+
       this.clientes.push(this.cliente);
       this.storage.set('clientes', this.clientes);
       this.presentAlert();
