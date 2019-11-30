@@ -16,6 +16,7 @@ export class HomePage {
 
   addCliente(){
     this.storage.get('clientes').then((val) => {
+      
       if(val){
         this.clientes = val;
         this.cliente.id = this.clientes[this.clientes.length - 1].id + 1;

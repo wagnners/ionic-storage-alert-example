@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 export class ListPage implements OnInit {
   clientes: any = [];
   
-  constructor(private storage: Storage, public alertController: AlertController) {
+  constructor(private storage: Storage, public alertController: AlertController, private tts: TextToSpeech) {
     this.getClients();
   }
   
@@ -44,6 +45,22 @@ export class ListPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  ler(nome){
+    this.tts.speak(nome)
+    .then(() => console.log('Success'))
+    .catch((reason: any) => console.log(reason));
+  }
+
+  detalhesCliente(nome, data, filhos){
+    if(filhos){
+      filhos = "Sim";
+    }else{
+      filhos = "Não";
+    }
+
+    this.alert("Nome: " + nome + ", <br>Data de Nascimento: " + data + " <br>Filhos? " + filhos);
   }
 
 }
